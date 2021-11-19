@@ -23,8 +23,7 @@ $(document).ready(function () {
         winnerSection.html(wheelOfDoom.chooseCoder());
         showCoders(wheelOfDoom.remainingCoders());
         if (wheelOfDoom.remainingCoders().length === 0) {
-            buttonToChooseCoders.hide()
-            restartButton.show()
+            showRestartButton()
         }
     });
 
@@ -32,19 +31,17 @@ $(document).ready(function () {
         wheelOfDoom.restart()
         winnerSection.empty()
         showCoders(wheelOfDoom.remainingCoders());
-        buttonToChooseCoders.show()
-        restartButton.hide()
+        showChooseButton()
     });
 
-
-
-    function restart() {
-        coderArray = namesAlreadyPicked.sort();
-        namesAlreadyPicked = [];
-        showCoders();
-        buttonToChooseCoders.show();
+    function showRestartButton() {
+        buttonToChooseCoders.hide()
+        restartButton.show()
     }
 
-
+    function showChooseButton() {
+        buttonToChooseCoders.show()
+        restartButton.hide()
+    }
 
 });
